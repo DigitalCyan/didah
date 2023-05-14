@@ -1,6 +1,6 @@
 # DiDah
 
-A simple terminal program that plays text provided via args as morse code via your default audio interface using SDL
+A simple CLI program that plays text provided via args as morse code via your default audio interface using SDL
 
 ## Dependencies
 - SDL2
@@ -10,3 +10,6 @@ A simple terminal program that plays text provided via args as morse code via yo
 - Make sure you have `CMake` and `make` installed
 - `cd` into the root of the project
 - Run `make`
+
+## TODO
+- Allow for piping data
