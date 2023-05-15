@@ -41,13 +41,6 @@ void MORSE_Init()
     SDL_Init(SDL_INIT_AUDIO);
     Mix_Init(MIX_INIT_OGG);
 
-    SDL_AudioSpec prefered;
-    prefered.channels = 128;
-    prefered.freq = 20000;
-    prefered.format = AUDIO_S16SYS;
-    prefered.samples = (20000 * 1000 / 20000);
-    prefered.size = 128;
-
     Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 2048);
 
     gTone = Mix_LoadWAV("assets/tone.ogg");
