@@ -88,7 +88,7 @@ void MORSE_PlayMorse(char *morse)
     }
 }
 
-char *MORSE_PlayString(char *text)
+void MORSE_PlayString(char *text)
 {
     while (*text != '\0')
     {
@@ -122,6 +122,17 @@ char *MORSE_PlayString(char *text)
 
 int main(int argc, char *args[])
 {
+    MORSE_Init();
+
+    if(!isatty(fileno(stdin))) {
+      char buffer[1024];
+      while(fgets(buffer, sizeof(buffer), stdin) != NULL) {
+        MORSE_PlayString(buffer);
+      }
+
+      return 0;
+    }
+
     if (argc != 2)
     {
         puts("Invalid argument count");
@@ -129,6 +140,7 @@ int main(int argc, char *args[])
         return 1;
     }
 
-    MORSE_Init();
     MORSE_PlayString(args[1]);
+
+    return 0;
 }
