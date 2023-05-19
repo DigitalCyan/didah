@@ -56,11 +56,11 @@ void MORSE_PlayChar(char c)
     switch (c)
     {
     case '.':
-        Mix_PlayChannel(1, gTone, 0);
+        Mix_PlayChannel(0, gTone, 0);
         break;
 
     case '-':
-        Mix_PlayChannel(1, gTone, 2);
+        Mix_PlayChannel(0, gTone, 2);
         break;
 
     case ' ':
@@ -71,7 +71,7 @@ void MORSE_PlayChar(char c)
         break;
     }
 
-    while (Mix_Playing(1) != 0)
+    while (Mix_Playing(0) != 0)
     {
         SDL_Delay(10);
     }
@@ -79,7 +79,7 @@ void MORSE_PlayChar(char c)
     SDL_Delay(100);
 }
 
-void MORSE_PlayMorse(char *morse)
+void MORSE_PlayMorseSequence(char *morse)
 {
     while (*morse != '\0')
     {
@@ -113,7 +113,7 @@ void MORSE_PlayString(char *text)
         }
 
         uint8_t index = c - 65;
-        MORSE_PlayMorse(gMorse[index]);
+        MORSE_PlayMorseSequence(gMorse[index]);
         SDL_Delay(200);
 
         text++;
